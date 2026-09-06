@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mahjong Dragon Demo</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HALAMAN 1 - LOADING
+===================================================== -->
+
+<section
+    id="loadingScreen"
+    class="loading-screen"
+>
+
+
+    <!-- Efek awan -->
+
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+    <div class="cloud cloud-three"></div>
+
+
+    <!-- Naga -->
+
+    <div class="dragon">
+        🐉
+    </div>
+
+
+    <!-- Judul -->
+
+    <div class="loading-title">
+
+        <div class="small-title">
+            DRAGON
+        </div>
+
+        <div class="main-title">
+            MAHJONG
+        </div>
+
+        <div class="sub-title">
+            FORTUNE
+        </div>
+
+    </div>
+
+
+    <!-- Tile -->
+
+    <div class="loading-tiles">
+
+        <div class="loading-tile tile-a">
+            🀇
+        </div>
+
+        <div class="loading-tile tile-b">
+            🀄
+        </div>
+
+        <div class="loading-tile tile-c">
+            🀙
+        </div>
+
+        <div class="loading-tile tile-d">
+            🀅
+        </div>
+
+        <div class="loading-tile tile-e">
+            🀆
+        </div>
+
+        <div class="loading-tile tile-center">
+            🀄
+        </div>
+
+    </div>
+
+
+    <!-- Keterangan -->
+
+    <div class="loading-description">
+
+        <h2>
+            WIN WITH DRAGON POWER
+        </h2>
+
+        <p>
+            Experience the magic of Mahjong
+            in this virtual demo.
+        </p>
+
+    </div>
+
+
+    <!-- Progress bar -->
+
+    <div class="loading-progress">
+
+        <div class="progress-background">
+
+            <div
+                id="progressFill"
+                class="progress-fill"
+            ></div>
+
+        </div>
+
+
+        <p id="loadingText">
+            Loading resources... 0%
+        </p>
+
+    </div>
+
+
+    <div class="wifi-text">
+        Best experience with Wi-Fi connection
+    </div>
+
+
+    <div class="loading-copyright">
+        MAHJONG DRAGON DEMO
+        <br>
+        VIRTUAL COINS • DEMO ONLY
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HALAMAN 2 - GAME
+===================================================== -->
+
+<section
+    id="gameScreen"
+    class="game-screen hidden"
+>
+
+
+    <!-- TOP -->
+
+    <header class="game-top">
+
+        <div class="game-name">
+            🐉 MAHJONG
+        </div>
+
+        <div class="ways">
+            🪙 2000 WAYS
+        </div>
+
+    </header>
+
+
+
+    <!-- MULTIPLIER -->
+
+    <div class="multipliers">
+
+        <div
+            class="multiplier active"
+            id="multi1"
+        >
+            x1
+        </div>
+
+        <div
+            class="multiplier"
+            id="multi2"
+        >
+            x2
+        </div>
+
+        <div
+            class="multiplier"
+            id="multi3"
+        >
+            x3
+        </div>
+
+    </div>
+
+
+
+    <!-- GAME BOARD -->
+
+    <main class="game-board">
+
+        <div
+            id="reels"
+            class="reels"
+        >
+
+            <!-- JavaScript akan membuat tile -->
+
+        </div>
+
+    </main>
+
+
+
+    <!-- WIN BANNER -->
+
+    <div class="win-banner">
+
+        WIN UP TO 2000 WAYS!
+
+    </div>
+
+
+
+    <!-- INFO -->
+
+    <div class="info-bar">
+
+
+        <div class="info-box">
+
+            <span class="info-icon">
+                🪙
+            </span>
+
+            <div>
+
+                <small>
+                    KOIN
+                </small>
+
+                <strong id="balance">
+                    2460
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-box">
+
+            <span class="info-icon">
+                🎯
+            </span>
+
+            <div>
+
+                <small>
+                    NILAI
+                </small>
+
+                <strong id="bet">
+                    0.40
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-box">
+
+            <span class="info-icon">
+                🏆
+            </span>
+
+            <div>
+
+                <small>
+                    MENANG
+                </small>
+
+                <strong id="win">
+                    0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- CONTROL -->
+
+    <div class="controls">
+
+
+        <!-- Turbo -->
+
+        <button
+            id="turboButton"
+            class="turbo-button"
+            onclick="toggleTurbo()"
+        >
+
+            <span>
+                ⚡
+            </span>
+
+            <small>
+                TURBO
+            </small>
+
+        </button>
+
+
+
+        <!-- Minus -->
+
+        <button
+            class="control-button"
+            onclick="changeBet(-0.10)"
+        >
+            −
+        </button>
+
+
+
+        <!-- SPIN -->
+
+        <button
+            id="spinButton"
+            class="spin-button"
+            onclick="spin()"
+        >
+
+            <span id="spinNumber">
+                43
+            </span>
+
+        </button>
+
+
+
+        <!-- Plus -->
+
+        <button
+            class="control-button"
+            onclick="changeBet(0.10)"
+        >
+            +
+        </button>
+
+
+    </div>
+
+
+
+    <!-- MESSAGE -->
+
+    <div
+        id="gameMessage"
+        class="game-message"
+    >
+        Tekan tombol tengah untuk bermain
+    </div>
+
+
+
+    <!-- RESET -->
+
+    <button
+        class="reset-button"
+        onclick="resetGame()"
+    >
+        RESET DEMO
+    </button>
+
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

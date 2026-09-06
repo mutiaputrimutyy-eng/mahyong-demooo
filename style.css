@@ -1,0 +1,1197 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #171717;
+}
+
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+.loading-screen {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,255,255,0.55),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #42cda5 0%,
+            #a9e789 43%,
+            #efc354 72%,
+            #74301e 100%
+        );
+
+    color: white;
+}
+
+
+/* Awan */
+
+.cloud {
+
+    position: absolute;
+
+    width: 250px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    filter: blur(2px);
+}
+
+
+.cloud::before,
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.18);
+}
+
+
+.cloud::before {
+
+    width: 120px;
+    height: 120px;
+
+    left: 40px;
+    top: -55px;
+}
+
+
+.cloud::after {
+
+    width: 100px;
+    height: 100px;
+
+    right: 35px;
+    top: -40px;
+}
+
+
+.cloud-one {
+
+    top: 15%;
+    left: -100px;
+
+    transform: rotate(-12deg);
+}
+
+
+.cloud-two {
+
+    top: 37%;
+    right: -110px;
+
+    transform: rotate(15deg);
+}
+
+
+.cloud-three {
+
+    top: 57%;
+    left: -130px;
+
+    transform: scale(0.7);
+}
+
+
+/* Naga */
+
+.dragon {
+
+    position: absolute;
+
+    top: 1%;
+
+    font-size:
+        clamp(
+            100px,
+            23vw,
+            220px
+        );
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(72,40,0,0.35)
+        );
+
+    animation:
+        dragonFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes dragonFloat {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+}
+
+
+/* Judul */
+
+.loading-title {
+
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: 16vh;
+
+    text-align: center;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+    text-shadow:
+        3px 4px 0 #612700,
+        0 0 15px
+        rgba(255,222,72,0.8);
+}
+
+
+.small-title {
+
+    font-size:
+        clamp(
+            18px,
+            4vw,
+            30px
+        );
+
+    letter-spacing: 8px;
+
+    color: #fff1a1;
+}
+
+
+.main-title {
+
+    font-size:
+        clamp(
+            45px,
+            11vw,
+            100px
+        );
+
+    color: #ffed55;
+
+    -webkit-text-stroke:
+        3px #783000;
+}
+
+
+.sub-title {
+
+    margin-top: -10px;
+
+    font-size:
+        clamp(
+            30px,
+            7vw,
+            65px
+        );
+
+    color: #fff0a0;
+
+    -webkit-text-stroke:
+        2px #823500;
+}
+
+
+/* Tile loading */
+
+.loading-tiles {
+
+    position: absolute;
+
+    bottom: 17%;
+
+    width: 100%;
+    height: 290px;
+}
+
+
+.loading-tile {
+
+    position: absolute;
+
+    width: 70px;
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffef4,
+            #e3d29f
+        );
+
+    border:
+        3px solid #b88b26;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 15px
+        rgba(68,39,0,0.4);
+
+    font-size: 45px;
+}
+
+
+.tile-a {
+
+    left: 13%;
+    bottom: 25px;
+
+    transform:
+        rotate(-18deg);
+}
+
+
+.tile-b {
+
+    left: 29%;
+    bottom: 75px;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.tile-c {
+
+    left: 43%;
+    bottom: 110px;
+
+    transform:
+        rotate(0);
+}
+
+
+.tile-d {
+
+    right: 29%;
+    bottom: 75px;
+
+    transform:
+        rotate(8deg);
+}
+
+
+.tile-e {
+
+    right: 13%;
+    bottom: 25px;
+
+    transform:
+        rotate(18deg);
+}
+
+
+.tile-center {
+
+    left: 50%;
+    bottom: 0;
+
+    width: 105px;
+    height: 135px;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 65px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe979,
+            #e5a31b
+        );
+
+    border-color: #fff1a0;
+
+    z-index: 10;
+}
+
+
+/* Description */
+
+.loading-description {
+
+    position: absolute;
+
+    bottom: 34%;
+
+    width: 90%;
+
+    z-index: 20;
+
+    text-align: center;
+
+    text-shadow:
+        2px 2px 3px #71300e;
+}
+
+
+.loading-description h2 {
+
+    font-size:
+        clamp(
+            16px,
+            4vw,
+            27px
+        );
+
+    color: #fff3a4;
+}
+
+
+.loading-description p {
+
+    margin-top: 8px;
+
+    font-size: 14px;
+}
+
+
+/* Progress */
+
+.loading-progress {
+
+    position: absolute;
+
+    bottom: 15%;
+
+    width:
+        min(
+            430px,
+            80%
+        );
+
+    z-index: 30;
+}
+
+
+.progress-background {
+
+    width: 100%;
+    height: 22px;
+
+    padding: 3px;
+
+    border-radius: 20px;
+
+    background: #28150d;
+
+    border:
+        2px solid #743717;
+}
+
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5446,
+            #ff9b5a
+        );
+
+    transition:
+        width 0.1s linear;
+}
+
+
+#loadingText {
+
+    margin-top: 8px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    text-shadow:
+        1px 1px 2px #4b2110;
+}
+
+
+.wifi-text {
+
+    position: absolute;
+
+    bottom: 9%;
+
+    font-size: 12px;
+}
+
+
+.loading-copyright {
+
+    position: absolute;
+
+    bottom: 2%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    letter-spacing: 1px;
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   GAME SCREEN
+===================================================== */
+
+.game-screen {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 480px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e45c3f,
+            #9c351f 65%,
+            #6d281b
+        );
+
+    color: white;
+}
+
+
+.hidden {
+
+    display: none;
+}
+
+
+/* Top */
+
+.game-top {
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e76848,
+            #b73827
+        );
+
+    border-bottom:
+        2px solid #f0ba54;
+}
+
+
+.game-name {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #ffe78b;
+}
+
+
+.ways {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #ffe78b;
+
+    text-shadow:
+        2px 2px 2px #7b2a14;
+}
+
+
+/* Multiplier */
+
+.multipliers {
+
+    display: flex;
+
+    height: 50px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #1bbcb0,
+            #078681
+        );
+
+    border-bottom:
+        2px solid #63ded3;
+}
+
+
+.multiplier {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 29px;
+
+    font-weight: bold;
+
+    font-style: italic;
+
+    color: #075d5a;
+}
+
+
+.multiplier.active {
+
+    color: #fff16a;
+
+    text-shadow:
+        2px 2px 2px #82500a,
+        0 0 10px #fff4a0;
+}
+
+
+/* Board */
+
+.game-board {
+
+    padding:
+        8px
+        8px
+        15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #b63826,
+            #ee7653
+        );
+}
+
+
+.reels {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 4px;
+
+    width: 100%;
+}
+
+
+.reel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    overflow: hidden;
+}
+
+
+.tile {
+
+    width: 100%;
+
+    aspect-ratio: 0.74;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffef4,
+            #eee4c9
+        );
+
+    border:
+        2px solid #cec19d;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 4px
+        rgba(0,0,0,0.35);
+
+    font-size:
+        clamp(
+            26px,
+            7vw,
+            40px
+        );
+
+    user-select: none;
+}
+
+
+.tile.gold {
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff477,
+            #e9ac20
+        );
+
+    border-color:
+        #fff0a0;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,214,46,0.8);
+}
+
+
+/* Win banner */
+
+.win-banner {
+
+    padding: 12px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e94a35,
+            #a91f20
+        );
+
+    border-top:
+        3px solid #ffcf57;
+
+    border-bottom:
+        3px solid #ffcf57;
+
+    color: #fff0b0;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+    text-shadow:
+        2px 2px 2px #6f200e;
+}
+
+
+/* Info */
+
+.info-bar {
+
+    display: flex;
+
+    gap: 5px;
+
+    padding: 8px;
+
+    background: #8b3924;
+}
+
+
+.info-box {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    min-height: 48px;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #bd5a34,
+            #963b23
+        );
+}
+
+
+.info-icon {
+
+    font-size: 18px;
+}
+
+
+.info-box small {
+
+    display: block;
+
+    font-size: 9px;
+
+    color: #ffd9b0;
+}
+
+
+.info-box strong {
+
+    display: block;
+
+    font-size: 16px;
+
+    color: white;
+}
+
+
+/* Controls */
+
+.controls {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding:
+        15px
+        8px
+        8px;
+}
+
+
+/* Turbo */
+
+.turbo-button {
+
+    width: 57px;
+    height: 57px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f3b13d,
+            #b85c1e
+        );
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.turbo-button span {
+
+    font-size: 21px;
+}
+
+
+.turbo-button small {
+
+    font-size: 8px;
+
+    font-weight: bold;
+}
+
+
+.turbo-button.active {
+
+    box-shadow:
+        0 0 15px #ffe568;
+}
+
+
+/* Minus plus */
+
+.control-button {
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid #d98a42;
+
+    background:
+        linear-gradient(
+            145deg,
+            #bc6435,
+            #7e301e
+        );
+
+    color: #f9d9b5;
+
+    font-size: 32px;
+
+    cursor: pointer;
+}
+
+
+/* Spin */
+
+.spin-button {
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    border:
+        7px solid #e6c36b;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6ee1a8,
+            #19a879
+        );
+
+    box-shadow:
+        inset 0 0 12px
+        rgba(255,255,255,0.6),
+
+        0 7px 0 #71371f,
+
+        0 10px 20px
+        rgba(0,0,0,0.35);
+
+    cursor: pointer;
+}
+
+
+.spin-button:active {
+
+    transform:
+        translateY(5px);
+
+    box-shadow:
+        0 2px 0 #71371f;
+}
+
+
+.spin-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+#spinNumber {
+
+    font-size: 44px;
+
+    font-weight: 900;
+
+    color: #ffe552;
+
+    text-shadow:
+        3px 3px 2px #27744d;
+}
+
+
+/* Message */
+
+.game-message {
+
+    min-height: 35px;
+
+    padding:
+        4px
+        10px
+        10px;
+
+    text-align: center;
+
+    color: #ffe4bb;
+
+    font-size: 13px;
+}
+
+
+/* Reset */
+
+.reset-button {
+
+    display: block;
+
+    margin:
+        0
+        auto
+        20px;
+
+    padding:
+        8px
+        18px;
+
+    border:
+        1px solid #d99a62;
+
+    border-radius: 7px;
+
+    background:
+        #71301f;
+
+    color: #ffe0c0;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   ANIMASI
+===================================================== */
+
+.reel.spinning .tile {
+
+    animation:
+        tileSpin
+        0.12s
+        infinite
+        linear;
+}
+
+
+@keyframes tileSpin {
+
+    0% {
+        transform:
+            translateY(-10px);
+    }
+
+    50% {
+        transform:
+            translateY(10px);
+    }
+
+    100% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+.tile.win {
+
+    animation:
+        winAnimation
+        0.45s
+        infinite
+        alternate;
+}
+
+
+@keyframes winAnimation {
+
+    from {
+
+        transform:
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            scale(1.08);
+
+        filter:
+            brightness(1.35);
+
+    }
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+    .game-screen {
+
+        min-height: 900px;
+
+        border-left:
+            2px solid #8b4b28;
+
+        border-right:
+            2px solid #8b4b28;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .loading-title {
+
+        margin-top: 17vh;
+    }
+
+
+    .loading-description {
+
+        bottom: 35%;
+    }
+
+
+    .loading-tiles {
+
+        bottom: 19%;
+    }
+
+
+    .game-board {
+
+        padding:
+            6px
+            5px
+            12px;
+    }
+
+
+    .win-banner {
+
+        font-size: 17px;
+    }
+
+
+    .spin-button {
+
+        width: 92px;
+        height: 92px;
+    }
+
+
+    #spinNumber {
+
+        font-size: 38px;
+    }
+
+
+    .controls {
+
+        gap: 8px;
+    }
+
+}
